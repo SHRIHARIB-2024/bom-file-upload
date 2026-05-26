@@ -1,0 +1,42 @@
+{
+  "name": "upload-bill-of-material",
+  "version": "1.0.0",
+  "description": "CAP and SAPUI5 app for uploading bill of material line items.",
+  "private": true,
+  "scripts": {
+    "start": "cds-serve",
+    "watch": "cds watch",
+    "build": "cds build --production",
+    "deploy:sqlite": "cds deploy --to sqlite:db.sqlite",
+    "undeploy": "cf undeploy upload-bill-of-material --delete-services --delete-service-keys"
+  },
+  "dependencies": {
+    "@sap/cds": "^8",
+    "@sap/xssec": "^4",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
+    "mbt": "^1"
+  },
+  "cds": {
+    "requires": {
+      "db": {
+        "kind": "sqlite",
+        "credentials": {
+          "url": "db.sqlite"
+        }
+      },
+      "auth": {
+        "kind": "mocked"
+      }
+    },
+    "[production]": {
+      "requires": {
+        "db": "hana",
+        "auth": "xsuaa"
+      }
+    }
+  }
+}

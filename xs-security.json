@@ -1,0 +1,19 @@
+{
+  "xsappname": "upload-bill-of-material",
+  "tenant-mode": "dedicated",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.UploadBom",
+      "description": "Upload bill of material line items"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "UploadBomUser",
+      "description": "User can open and upload BOM line items",
+      "scope-references": [
+        "$XSAPPNAME.UploadBom"
+      ]
+    }
+  ]
+}

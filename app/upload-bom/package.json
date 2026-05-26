@@ -1,0 +1,16 @@
+{
+  "name": "upload-bom",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "ui5 build --all --dest dist"
+  },
+  "devDependencies": {
+    "@ui5/cli": "^4"
+  },
+  "ui5": {
+    "dependencies": [
+      "@sap/ux-ui5-tooling"
+    ]
+  }
+}

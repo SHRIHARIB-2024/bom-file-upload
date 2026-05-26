@@ -1,0 +1,19 @@
+COLUMN TABLE upload_bom_BomHeaders (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  material NVARCHAR(40),
+  materialText NVARCHAR(120),
+  plant NVARCHAR(4),
+  plantName NVARCHAR(80),
+  bomUsage NVARCHAR(1),
+  alternativeBom NVARCHAR(2),
+  validFrom DATE,
+  revisionLevel NVARCHAR(2),
+  changeNumber NVARCHAR(12),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO MANY JOIN upload_bom_BomItems AS items ON (items.parent_ID = ID)
+)

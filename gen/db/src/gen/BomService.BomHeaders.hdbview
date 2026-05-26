@@ -1,0 +1,19 @@
+VIEW BomService_BomHeaders AS SELECT
+  BomHeaders_0.ID,
+  BomHeaders_0.createdAt,
+  BomHeaders_0.createdBy,
+  BomHeaders_0.modifiedAt,
+  BomHeaders_0.modifiedBy,
+  BomHeaders_0.material,
+  BomHeaders_0.materialText,
+  BomHeaders_0.plant,
+  BomHeaders_0.plantName,
+  BomHeaders_0.bomUsage,
+  BomHeaders_0.alternativeBom,
+  BomHeaders_0.validFrom,
+  BomHeaders_0.revisionLevel,
+  BomHeaders_0.changeNumber
+FROM upload_bom_BomHeaders AS BomHeaders_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN BomService_BomItems AS items ON (items.parent_ID = ID)
+)

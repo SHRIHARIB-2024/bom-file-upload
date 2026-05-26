@@ -1,0 +1,22 @@
+COLUMN TABLE upload_bom_BomItems (
+  ID NVARCHAR(36) NOT NULL,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  parent_ID NVARCHAR(36),
+  itemNo NVARCHAR(4),
+  component NVARCHAR(40),
+  componentDescription NVARCHAR(120),
+  quantity DECIMAL(13, 3),
+  unit NVARCHAR(3),
+  validFrom DATE,
+  validTo DATE,
+  changeNumber NVARCHAR(12),
+  sortString NVARCHAR(20),
+  itemId NVARCHAR(12),
+  source NVARCHAR(12),
+  PRIMARY KEY(ID)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN upload_bom_BomHeaders AS parent ON (parent.ID = parent_ID)
+)

@@ -1,0 +1,22 @@
+VIEW BomService_BomItems AS SELECT
+  BomItems_0.ID,
+  BomItems_0.createdAt,
+  BomItems_0.createdBy,
+  BomItems_0.modifiedAt,
+  BomItems_0.modifiedBy,
+  BomItems_0.parent_ID,
+  BomItems_0.itemNo,
+  BomItems_0.component,
+  BomItems_0.componentDescription,
+  BomItems_0.quantity,
+  BomItems_0.unit,
+  BomItems_0.validFrom,
+  BomItems_0.validTo,
+  BomItems_0.changeNumber,
+  BomItems_0.sortString,
+  BomItems_0.itemId,
+  BomItems_0.source
+FROM upload_bom_BomItems AS BomItems_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN BomService_BomHeaders AS parent ON (parent.ID = parent_ID)
+)

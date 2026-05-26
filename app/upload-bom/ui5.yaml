@@ -1,0 +1,12 @@
+specVersion: "3.1"
+metadata:
+  name: upload.bom.app
+type: application
+resources:
+  configuration:
+    paths:
+      webapp: webapp
+builder:
+  resources:
+    excludes:
+      - "/test/**"
